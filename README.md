@@ -20,3 +20,4 @@ git push --mirror https://github.com/mini-mirror/mirror-gitlab.git
 
 #change the remote repo to github
 git remote set-url origin https://github.com/mini-mirror/mirror-gitlab.git
+```
