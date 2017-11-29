@@ -7,4 +7,9 @@ This github project will be served as upstream, and gitlab will sync with github
 # Running:
 go run main.go 
 
-localhost:3000 
+## welcome page
+http://localhost:3000 
+
+## name page
+http://localhost:3000/hello/:name (subsitute :name with any name)
+
