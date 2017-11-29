@@ -23,5 +23,6 @@ func handlerFunc(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, "please contact <a href=\"mailto:eleanore.jin@gmail.com\">eleanore.jin@gmail.com</a>")
 	} else {
 		w.WriteHeader(404)
+		fmt.Fprint(w, "<h1>Page Not Found</h1><p>please contact us</p>")
 	}
 }
