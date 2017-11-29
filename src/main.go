@@ -17,5 +17,11 @@ func main() {
 //handlerFunc that handles all the incoming request
 func handlerFunc(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	fmt.Fprint(w, "<h1>Welcome to my site!</h1>")
+	if r.URL.Path == "/" {
+		fmt.Fprint(w, "<h1>Welcome to my site!</h1>")
+	} else if r.URL.Path == "/contact" {
+		fmt.Fprint(w, "please contact <a href=\"mailto:eleanore.jin@gmail.com\">eleanore.jin@gmail.com</a>")
+	} else {
+		w.WriteHeader(404)
+	}
 }
