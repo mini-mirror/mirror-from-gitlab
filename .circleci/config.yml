@@ -1,9 +1,28 @@
 version: 2 #version of circle ci
 jobs:
   build:
-    working_directory: ~/tmp
+    working_directory: ~/go/src/github.com/mini-mirror #git clone at this location
     docker:
       - image: circleci/golang:1.8
+    environment: 
+      - GOPATH=/home/circleci/go
+      - GOVERSION=1.8.1
+      - OS=linux
+      - ARCH=amd64  
     steps:
       - checkout #clone git repo, circle ci is aware of repo 
-      - run: go test
+      # update Go
+      - run: |
+          go version
+          go env GOROOT
+          mkdir tmp
+          cd tmp
+          sudo rm -rf /usr/local/go
+          wget https://storage.googleapis.com/golang/go$GOVERSION.$OS-$ARCH.tar.gz
+          sudo tar -C /usr/local -xzf go$GOVERSION.$OS-$ARCH.tar.gz
+          rm -rf tmp  
+      - run: echo current directory is $PWD   
+      - run: go get -u github.com/julienschmidt/httprouter #install 3rdpart dependency
+      - run: |
+          cd mirror-from-gitlab/src
+          go test
