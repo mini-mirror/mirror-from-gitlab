@@ -25,6 +25,7 @@ jobs:
           sudo tar xvf tree-1.7.0.tgz
           cd tree-1.7.0
           sudo make
+          export PATH=${PWD}:$PATH
       - run: echo current directory is $PWD   
       - run: go get -u github.com/julienschmidt/httprouter #install 3rdpart dependency
       - run: tree
