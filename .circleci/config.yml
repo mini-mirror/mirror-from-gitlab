@@ -1,7 +1,7 @@
 version: 2 #version of circle ci
 jobs:
   build:
-    working_directory: ~/go/src/github.com/mini-mirror #git clone at this location
+    working_directory: ~/go/src/github.com/mini-mirror/mirror-from-gitlab #git clone at this location
     docker:
       - image: circleci/golang:1.8
     environment: 
@@ -24,5 +24,5 @@ jobs:
       - run: go get -u github.com/julienschmidt/httprouter #install 3rdpart dependency
       - run: ls 
       - run: |
-          cd mirror-from-gitlab/src
+          cd src
           go test
