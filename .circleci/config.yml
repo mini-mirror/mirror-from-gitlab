@@ -20,9 +20,14 @@ jobs:
           sudo rm -rf /usr/local/go
           wget https://storage.googleapis.com/golang/go$GOVERSION.$OS-$ARCH.tar.gz
           sudo tar -C /usr/local -xzf go$GOVERSION.$OS-$ARCH.tar.gz
-          rm -rf tmp  
+          #install tree
+          wget http://mama.indstate.edu/users/ice/tree/src/tree-1.7.0.tgz
+          sudo tar xvf tree-1.7.0.tgz
+          cd tree-1.7.0
+          make
       - run: echo current directory is $PWD   
       - run: go get -u github.com/julienschmidt/httprouter #install 3rdpart dependency
+      - run: tree
       - run: |
           cd mirror-from-gitlab/src
           go test
