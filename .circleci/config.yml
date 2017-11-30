@@ -1,7 +1,8 @@
 version: 2 #version of circle ci
 jobs:
   build:
-    working_directory: ~/go/src/github.com/mini-mirror/mirror-from-gitlab #git clone at this location
+    #git clone at this location: git clone url $workding_directory
+    working_directory: ~/go/src/github.com/mini-mirror/mirror-from-gitlab 
     docker:
       - image: circleci/golang:1.8
     environment: 
