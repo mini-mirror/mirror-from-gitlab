@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"reflect"
 	"testing"
@@ -13,6 +14,8 @@ func TestMock(t *testing.T) {
 	actual := "Hello!"
 	if actual != expected {
 		t.Errorf("Test failed", expected, actual)
+	} else {
+		fmt.Println("TestMock succeeded")
 	}
 }
 
@@ -36,6 +39,8 @@ func TestRunServe(t *testing.T) {
 
 	if !routed {
 		t.Fatal("routing failed!")
+	} else {
+		fmt.Println("TestRunServe succeeded")
 	}
 
 }
