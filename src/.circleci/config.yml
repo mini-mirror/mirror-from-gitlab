@@ -1,0 +1,9 @@
+version: 2 #version of circle ci
+jobs:
+  build:
+    working_directory: ~/tmp
+    docker:
+      - image: circleci/golang:1.8
+    steps:
+      - checkout #clone git repo, circle ci is aware of repo 
+      - run: go test
