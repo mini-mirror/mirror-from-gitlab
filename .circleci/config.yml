@@ -24,7 +24,7 @@ jobs:
           wget http://mama.indstate.edu/users/ice/tree/src/tree-1.7.0.tgz
           sudo tar xvf tree-1.7.0.tgz
           cd tree-1.7.0
-          make
+          sudo make
       - run: echo current directory is $PWD   
       - run: go get -u github.com/julienschmidt/httprouter #install 3rdpart dependency
       - run: tree
