@@ -3,6 +3,7 @@ jobs:
   build:
     #git clone at this location: git clone url $workding_directory
     working_directory: ~/go/src/github.com/mini-mirror/mirror-from-gitlab 
+    parallelism: 2
     docker:
       - image: circleci/golang:1.8
     environment: 
@@ -24,6 +25,5 @@ jobs:
       - run: echo current directory is $PWD   
       - run: go get -u github.com/julienschmidt/httprouter #install 3rdpart dependency
       - run: ls 
-      - run: |
-          cd src
-          go test
+      - run: cd src
+      - run: circleci tests glob "main_test.go" | circleci tests split    
